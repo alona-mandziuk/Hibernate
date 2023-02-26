@@ -1,17 +1,25 @@
+plugins {
+    id 'java'
+}
 
-
-apply plugin: 'java'
-apply plugin: 'idea'
-sourceCompatibility = 1.8
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compileOnly('org.hibernate:hibernate-core:5.6.1.Final')
-    compileOnly('mysql:mysql-connector-java:8.0.30')
-    compileOnly('org.projectlombok:lombok:+')
+//    compileOnly('org.hibernate:hibernate-core:6.1.7.Final')
+//    compileOnly('mysql:mysql-connector-java:8.0.30')
+//    compileOnly('org.projectlombok:lombok:+')
+    implementation 'com.oracle.ojdbc:ojdbc8:19.3.0.0'
+    implementation 'org.hibernate:hibernate-core:6.1.7.Final'
+    implementation 'mysql:mysql-connector-java:8.0.30'
 
     testCompileOnly(group: 'junit', name: 'junit', version: '4.11')
+}
+
+test {
+    useJUnitPlatform()
 }
